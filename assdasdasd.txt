@@ -1,0 +1,75 @@
+CREATE TABLE Pracownicy(
+	identyfikator_pracownika int PRIMARY KEY AUTO_INCREMENT,
+	imie_pracownika VARCHAR(30) NOT NULL,
+    nazwisko_pracownika VARCHAR(40) NOT NULL,
+    numer_pesel int(11) UNIQUE,
+    pensja DECIMAL(10,2) DEFAULT 4000.00,
+    data_zatrudnienia DATE NOT NULL,
+    typ_etatu enum('pełny','1/2','1/4') DEFAULT 'pełny',
+    numer_telefonu VARCHAR(15) NULL,
+);
+CREATE TABLE Stanowiska(
+identyfikator_stanowiska int PRIMARY KEY AUTO_INCREMENT,
+nazwa_stanowiska VARCHAR(40) NOT NULL,
+opis_stanowiska text,
+stawka_godzinowa decimal(10,2) DEFAULT 0,
+data_waznosci_stanowiska date
+);
+CREATE TABLE Projekty(
+identyfikator_projektu int PRIMARY KEY AUTO_INCREMENT,
+nazwa_projektu VARCHAR(50) NOT NULL,
+budzet_projektu decimal(10,2) DEFAULT 10000,
+data_rozpoczecia_projektu date NULL,
+priorytet_projektu ENUM('niski', 'sredni', 'wysoki') DEFAULT 'sredni',
+opis_projektu text NULL
+);
+CREATE TABLE Dzialy(
+identyfikator_dzialu int PRIMARY KEY AUTO_INCREMENT,
+nazwa_dzialu VARCHAR(30) NOT NULL,
+numer_telefonu_dzialu VARCHAR(15) NULL,
+budzet_roczny_dzialu decimal(10,2) DEFAULT 0,
+data_utworzenia_dzialu date DEFAULT CURRENT_DATE
+);
+CREATE TABLE Premie(
+identyfikator_premii int PRIMARY KEY AUTO_INCREMENT.
+kwota_premii decimal(10,2) NOT NULL,
+rok_przyznania_premii YEAR NOT NULL,
+typ_premii ENUM('uznaniowa', 'stała', 'okolicznosciowa') DEFAULT 'uznaniowa',
+data_wyplaty_premii date NULL
+);
+INSERT INTO stanowiska (nazwa_stanowiska, opis_stanowiska, stawka_godzinowa, data_waznosci_stanowiska) VALUES ("IT", "obsluga dzialu IT", "100", "2028.10.04");
+INSERT INTO stanowiska (nazwa_stanowiska, opis_stanowiska, stawka_godzinowa, data_waznosci_stanowiska) VALUES ("ksiegowy", "obsluga ksiegowosci", "90", "2027.10.04");
+INSERT INTO stanowiska (nazwa_stanowiska, opis_stanowiska, stawka_godzinowa, data_waznosci_stanowiska) VALUES ("reklamodawca", "dbanie o reklame firmy", "80", "2030.10.04");
+INSERT INTO stanowiska (nazwa_stanowiska, opis_stanowiska, stawka_godzinowa, data_waznosci_stanowiska) VALUES ("logistyk", "obsluga dzialu logistycznego", "110", "2028.12.06");
+INSERT INTO stanowiska (nazwa_stanowiska, opis_stanowiska, stawka_godzinowa, data_waznosci_stanowiska) VALUES ("obsluga", "obsluga klientow", "90", "2029.16.10");
+INSERT INTO dzialy (nazwa_dzialu, numer_telefonu_dzialu, budzet_roczny_dzialu, data_utworzenia_dzialu) VALUES ("dzial_marketingu","784221891","10000", "2023.10.02");
+INSERT INTO dzialy (nazwa_dzialu, numer_telefonu_dzialu, budzet_roczny_dzialu, data_utworzenia_dzialu) VALUES ("dzial_logistyki","747584891","15000", "2024.10.01");
+INSERT INTO dzialy (nazwa_dzialu, numer_telefonu_dzialu, budzet_roczny_dzialu, data_utworzenia_dzialu) VALUES ("dzial_ksiegowosci","890123891","12500", "2024.09.04");
+INSERT INTO dzialy (nazwa_dzialu, numer_telefonu_dzialu, budzet_roczny_dzialu, data_utworzenia_dzialu) VALUES ("dzial_it","890902131","18000", "2023.11.01");
+INSERT INTO dzialy (nazwa_dzialu, numer_telefonu_dzialu, budzet_roczny_dzialu, data_utworzenia_dzialu) VALUES ("dzial_obslugi_klienta","098123991","12000", "2023.12.08");
+INSERT INTO pracownicy (imie_pracownika, nazwisko_pracownika, numer_pesel ,pensja, data_zatrudnienia, typ_etatu, numer_telefonu) VALUES ("Marel","Michalczyk","12345678901", "10000", "2023.10.02", "pełny", "123123456");
+INSERT INTO pracownicy (imie_pracownika, nazwisko_pracownika, numer_pesel ,pensja, data_zatrudnienia, typ_etatu, numer_telefonu) VALUES ("Maciej","Wojtaszek","12345128901", "8000", "2023.10.03", "pełny", "123123456");
+INSERT INTO pracownicy (imie_pracownika, nazwisko_pracownika, numer_pesel ,pensja, data_zatrudnienia, typ_etatu, numer_telefonu) VALUES ("Janusz","Stefaniak","123334578901", "6000", "2023.11.05", "pełny", "123123436");
+INSERT INTO pracownicy (imie_pracownika, nazwisko_pracownika, numer_pesel ,pensja, data_zatrudnienia, typ_etatu, numer_telefonu) VALUES ("Jacek","Wiśniewski","15675678901", "67000", "2023.11.09", "pełny", "123123456");
+INSERT INTO pracownicy (imie_pracownika, nazwisko_pracownika, numer_pesel ,pensja, data_zatrudnienia, typ_etatu, numer_telefonu) VALUES ("Jakub","Stawinoga","98712378901", "7000", "2024.12.10", "pełny", "167856756");
+INSERT INTO premie (kwota_premii, rok_przyznania_premii, typ_premii, data_wyplaty_premii ) VALUES ("1000", "2023","roczna", "2023.10.02");
+INSERT INTO premie (kwota_premii, rok_przyznania_premii, typ_premii, data_wyplaty_premii ) VALUES ("1050", "2023","roczna", "2023.10.06");
+INSERT INTO premie (kwota_premii, rok_przyznania_premii, typ_premii, data_wyplaty_premii ) VALUES ("1500", "2024","roczna", "2024.10.03");
+INSERT INTO premie (kwota_premii, rok_przyznania_premii, typ_premii, data_wyplaty_premii ) VALUES ("2000", "2023","roczna", "2023.12.06");
+INSERT INTO premie (kwota_premii, rok_przyznania_premii, typ_premii, data_wyplaty_premii ) VALUES ("6000", "2023","roczna", "2023.10.05");
+INSERT INTO projekty (nazwa_projektu, budzet_projektu, data_rozpoczecia_projektu, priorytet_projektu, opis_projektu ) VALUES ("ufoanomalies", "10000","2023.10.02", "sprzedaz", "strona internetowa");
+INSERT INTO projekty (nazwa_projektu, budzet_projektu, data_rozpoczecia_projektu, priorytet_projektu, opis_projektu ) VALUES ("coffeshop", "11000","2023.12.08", "reklama", "strona internetowa");
+INSERT INTO projekty (nazwa_projektu, budzet_projektu, data_rozpoczecia_projektu, priorytet_projektu, opis_projektu ) VALUES ("bazadanych", "8000","2023.01.10", "baza danych", "stworzenie baz danych");
+INSERT INTO projekty (nazwa_projektu, budzet_projektu, data_rozpoczecia_projektu, priorytet_projektu, opis_projektu ) VALUES ("ulotki", "1000","2023.10.04", "reklama", "rozdawanie ulotek");
+INSERT INTO projekty (nazwa_projektu, budzet_projektu, data_rozpoczecia_projektu, priorytet_projektu, opis_projektu ) VALUES ("stona glowna", "19000","2023.01.02", "sprzedaz", "głowna strona internetowa firmy
+DELETE FROM `pracownicy` WHERE `pracownicy`.`identyfikator_pracownika` = 3
+UPDATE pracownicy SET pensja = pensja + 1500 WHERE identyfikator_pracownika = 1;
+UPDATE pracownicy SET pensja = pensja + 1500 WHERE identyfikator_pracownika = 3;
+UPDATE pracownicy SET pensja = pensja + 1200 WHERE identyfikator_pracownika = 4;
+UPDATE pracownicy SET pensja = pensja + 10050 WHERE identyfikator_pracownika = 6;
+UPDATE pracownicy SET pensja = pensja + 900 WHERE identyfikator_pracownika = 5;
+Rozszerz Wykonaj zapytanie ponownie Edytuj Baza danych : zadanie3tigrupaa Czas zapytania : 15:16:12
+UPDATE pracownicy SET pensja = pensja + 1050 WHERE identyfikator_pracownika = 7;
+UPDATE pracownicy SET typ_etatu = "1/2" WHERE identyfikator_pracownika = 5;
+UPDATE pracownicy SET typ_etatu = "1/2" WHERE identyfikator_pracownika = 6;
+UPDATE stanowiska SET opis_stanowiska = "Tworzy oprogramowanie i prowadzi testy" WHERE identyfikator_stanowiska = 1;
