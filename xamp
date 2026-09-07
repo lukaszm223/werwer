@@ -1,0 +1,16 @@
+CREATE DATABASE pracownicy;
+SELECT * FROM pracownicy;
+SELECT imie, nazwisko, stanowisko FROM pracownicy;
+SELECT nazwisko FROM pracownicy WHERE nazwisko = 'Kowalski';
+SELECT * FROM pracownicy WHERE placa <1600;
+SELECT * FROM pracownicy WHERE placa BETWEEN 1400 AND 1600;
+SELECT * FROM pracownicy WHERE id IN (3,5,7);
+SELECT * FROM pracownicy WHERE imie LIKE 'Ka%'
+SELECT id, imie, nazwisko FROM pracownicy WHERE NOT pesel = NULL;
+SELECT nazwisko FROM pracownicy;
+SELECT * FROM pracownicy WHERE placa > 1400 AND NOT stanowisko = 'kierownik' AND  pesel = NULL;
+
+CREATE DATABASE zapytania_filmoteka;
+SELECT * FROM film WHERE dlugosc > 115
+SELECT * FROM film WHERE rok < 2000;
+SELECT * FROM film WHERE tytul LIKE 'G%';
