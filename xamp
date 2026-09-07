@@ -14,3 +14,20 @@ CREATE DATABASE zapytania_filmoteka;
 SELECT * FROM film WHERE dlugosc > 115
 SELECT * FROM film WHERE rok < 2000;
 SELECT * FROM film WHERE tytul LIKE 'G%';
+SELECT * FROM film ORDER BY tytul ASC;
+SELECT * FROM film ORDER BY dlugosc ASC;
+SELECT * FROM rezyser WHERE miejsce_urodzenia = 'Polska' OR miejsce_urodzenia = 'USA';
+SELECT * FROM ranking WHERE oscar > 0;
+
+CREATE DATABASE zapytania_magazyn;
+SELECT * FROM dostawcy WHERE NOT dost_kraj = 'Polska';
+SELECT * FROM dostawcy WHERE dost_id LIKE 'B%';
+SELECT * FROM klienci WHERE kl_kod LIKE '4__';
+SELECT * FROM klienci WHERE kl_email = NULL;
+
+CREATE DATABASE biblioteka321123;
+SELECT * FROM autorzy WHERE imie LIKE 'D%';
+SELECT * FROM pracownicy WHERE wynagrodzenie BETWEEN 3000 AND 5000;
+SELECT * FROM pracownicy WHERE imie = 'Jan' OR nazwisko = 'Nowak';
+SELECT * FROM pracownicy WHERE id_stanowiska = 3;
+SELECT * FROM gatunki WHERE gatunek LIKE '%a';
