@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #FFCC99;
+    font-family: Garamond;
+    display: flex;
+    text-align: center;
+}
+header,footer {
+    background-color: darkgreen;
+    color: white;
+    padding: 30px;
+    font-size: 140%;
+}
+nav {
+    background-color: MediumSeaGreen;
+    word-spacing: 90px;
+    margin: 20px;
+}
+.lewa {
+    width: 70%;
+    height: 500px;
+}
+.prawa {
+    background-color: mediumseagreen;
+    width: 30%;
+    height: 500px;
+    text-align: left;
+}
+.sektor {
+    border: 1px;
+    border-color: darkgreen;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
