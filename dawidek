@@ -1,0 +1,16 @@
+CREATE DATABASE funkcje;
+SELECT COUNT(*) FROM pracownicy;
+SELECT COUNT(pesel) FROM pracownicy WHERE pesel != NULL;
+SELECT COUNT(stanowisko) FROM pracownicy WHERE stanowisko = 'sprzedawca';
+SELECT AVG(placa) FROM pracownicy;
+SELECT MAX(placa) FROM pracownicy;
+SELECT MIN(placa) FROM pracownicy;
+SELECT AVG(placa), MIN(placa), MAX(placa) FROM pracownicy;
+SELECT AVG(placa), MIN(placa), MAX(placa) FROM pracownicy WHERE stanowisko = 'sprzedawca';
+SELECT SUM(placa) FROM pracownicy;
+SELECT SUM(placa) FROM pracownicy WHERE stanowisko = 'sprzedawca';
+SELECT AVG(prod_cena) FROM produkty;
+SELECT COUNT(*) FROM produkty;
+SELECT COUNT(*) FROM dostawcy WHERE dost_woj = NULL;
+SELECT SUM(cena_elem) FROM elementyzamowienia WHERE zam_numer = 20005;
+
