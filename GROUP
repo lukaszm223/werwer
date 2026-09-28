@@ -1,1 +1,4 @@
 SELECT MIN(placa_pod), MAX(placa_pod), MAX(placa_pod) - MIN(placa_pod) FROM pracownicy;
+SELECT AVG(placa_od) FROM etaty ORDER BY AVG(placa_od) DESC;
+SELECT * FROM pracownicy WHERE etat = 'profesor';
+SELECT AVG(placa_pod), AVG(placa_dod) FROM pracownicy GROUP BY id_zesp;
