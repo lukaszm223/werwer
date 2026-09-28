@@ -1,0 +1,1 @@
+SELECT MIN(placa_pod), MAX(placa_pod), MAX(placa_pod) - MIN(placa_pod) FROM pracownicy;
