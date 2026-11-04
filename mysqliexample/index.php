@@ -102,7 +102,35 @@ echo "</table>";
     </label>
     <input type="submit" name="dodajprodukt" value="dodaj produkt">
 </form>
+<form method="post" action="aktualizacjaceny.php">
+    <label for="id">
+        <p>Podaj ID :</p>
+        <input type="text" name="id">
+    </label>
+    <label for="nowa_cena">
+        <p>Podaj nową cene:</p>
+        <input type="number" name="nowa_cena">
+    </label>
+    <input type="submit" name="aktualizuj" value="Aktualizuj">
+</form>
+<?php
+$result = mysqli_query($conn, "SELECT * FROM produkty INNER JOIN koszyk ON  ");
+echo "<table border='1' cellpadding='5'>";
+echo "<tr>
+    <th>ID</th>
+    <th>Nazwa</th>
+    <th>Email</th>
+</tr>";
 
+while($wiersz = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>".$wiersz['id']."</td>";
+    echo "<td>".$wiersz['nazwa']."</td>";
+    echo "<td>".$wiersz['email']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
+?>
 </body>
 </html>
 
