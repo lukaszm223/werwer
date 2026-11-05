@@ -114,23 +114,27 @@ echo "</table>";
     <input type="submit" name="aktualizuj" value="Aktualizuj">
 </form>
 <?php
-$result = mysqli_query($conn, "SELECT * FROM produkty INNER JOIN koszyk ON  ");
+$result = mysqli_query($conn, "SELECT * FROM koszyk INNER JOIN produkty ON koszyk.id_produktu = produkty.id  ");
 echo "<table border='1' cellpadding='5'>";
 echo "<tr>
     <th>ID</th>
-    <th>Nazwa</th>
-    <th>Email</th>
+    <th>Cena</th>
+    <th>Kategoria</th>
 </tr>";
 
 while($wiersz = mysqli_fetch_assoc($result)) {
     echo "<tr>";
     echo "<td>".$wiersz['id']."</td>";
-    echo "<td>".$wiersz['nazwa']."</td>";
-    echo "<td>".$wiersz['email']."</td>";
+    echo "<td>".$wiersz['cena']."</td>";
+    echo "<td>".$wiersz['kategoria']."</td>";
     echo "</tr>";
 }
 echo "</table>";
 ?>
+<form action="usunprodukt.php" method="POST">
+                <input type="number" name="id_koszyka" id="id_koszyka" placeholder="Podaj ID koszyka">
+                <button>Usuń koszyk</button>
+</form>
 </body>
 </html>
 
